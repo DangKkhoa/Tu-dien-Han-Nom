@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfirstjavafx.SceneController">
    <children>
       <Label layoutX="243.0" layoutY="97.0" text="Đăng nhập">
@@ -55,6 +54,11 @@
          </children>
       </AnchorPane>
       <Hyperlink layoutX="254.0" layoutY="339.0" text="Đăng ký tại đây">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="14.0" layoutY="14.0" onAction="#handleBack" text="Quay lại">
          <font>
             <Font size="14.0" />
          </font>

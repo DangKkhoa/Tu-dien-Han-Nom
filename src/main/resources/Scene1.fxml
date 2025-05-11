@@ -29,16 +29,21 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="usernameLabel" layoutX="426.0" layoutY="15.0" text="Label" visible="false" AnchorPane.rightAnchor="10.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+            <Pane fx:id="userInfoPane" layoutX="332.0" layoutY="11.0" prefHeight="34.0" prefWidth="125.0" visible="false" AnchorPane.rightAnchor="10.0">
+               <children>
+                  <Label fx:id="usernameLabel" layoutX="-1.0" layoutY="9.0" prefHeight="17.0" prefWidth="43.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="55.0" layoutY="5.0" onAction="#logout" prefHeight="24.0" prefWidth="74.0" text="Đăng xuất" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
-      <TabPane prefHeight="200.0" prefWidth="172.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="172.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
         <tabs>
-          <Tab text="Tra Hán Nôm">
+          <Tab fx:id="hanNom" onSelectionChanged="#handleTabSelection" text="Tra Hán Nôm">
                <content>
                   <AnchorPane prefHeight="504.0" prefWidth="626.0">
                      <children>
@@ -69,7 +74,7 @@
                   </AnchorPane>
                </content>
           </Tab>
-            <Tab text="Tra Pinyin">
+            <Tab fx:id="pinyin" onSelectionChanged="#handleTabSelection" text="Tra Pinyin">
                <content>
                   <AnchorPane prefHeight="504.0" prefWidth="626.0">
                      <children>
@@ -102,7 +107,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Bộ thủ">
+            <Tab fx:id="boThu" onSelectionChanged="#handleTabSelection" text="Bộ thủ">
                <content>
                   <AnchorPane prefHeight="504.0" prefWidth="626.0">
                      <children>
@@ -125,11 +130,11 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Lịch sử tìm kiếm">
+            <Tab fx:id="history" onSelectionChanged="#handleTabSelection" text="Lịch sử tìm kiếm">
                <content>
                   <AnchorPane prefHeight="338.0" prefWidth="626.0">
                      <children>
-                        <Label fx:id="loginRequestLabel" alignment="CENTER" layoutX="1.0" layoutY="195.0" prefHeight="30.0" prefWidth="626.0" text="Hãy đăng nhập để xem lịch sử tra từ." textAlignment="CENTER" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="195.0">
+                        <Label fx:id="loginRequestLabel" alignment="CENTER" layoutY="32.0" prefHeight="30.0" prefWidth="626.0" text="Hãy đăng nhập để xem lịch sử tra từ." textAlignment="CENTER" AnchorPane.bottomAnchor="358.6666666666667" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
                            <font>
                               <Font name="System Italic" size="20.0" />
                            </font>

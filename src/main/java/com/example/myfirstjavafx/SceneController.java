@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +17,7 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private String loggedinUser;
+    private String loggedinUser = null;
 
     Map<String, String> users = new HashMap<>();
 
@@ -54,20 +52,19 @@ public class SceneController {
 
         if(users.containsKey(email) && users.get(email).equals(password)) {
             loggedinUser = email;
-            home(e);
+            showHome(e);
         }
         else {
             System.out.println("Wrong username or password");
         }
     }
 
-    public void home(ActionEvent e) throws IOException {
+    public void showHome(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Scene1.fxml"));
         root = loader.load();
 
         HomeController homeController = loader.getController();
         homeController.setLoggedinUser(loggedinUser);
-//        root = FXMLLoader.load(getClass().getResource("/HomeScene.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -78,4 +75,11 @@ public class SceneController {
 
         stage.show();
     }
+
+    @FXML
+    public void handleBack(ActionEvent e) throws IOException {
+        showHome(e);
+    }
+
+
 }
